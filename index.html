@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CipherSchools - Question 22</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        .person-details {
+            margin-top: 30px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .container {
+            display: flex; /* Horizontal by default */
+            gap: 15px;
+            margin-top: 20px;
+            justify-content: center;
+        }
+        .box {
+            flex: 1;
+            padding: 20px;
+            border: 1px solid #cceeff;
+            background-color: #e6f7ff;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        /* Media Query for layout change */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column; /* Vertical on smaller screens */
+                align-items: center; /* Center items when stacked */
+            }
+            .box {
+                width: 90%; /* Take more width when stacked */
+                max-width: 300px; /* Limit max width for readability */
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Question 22: JavaScript Class and Responsive Layout</h1>
+
+    <h2>Person Details Output:</h2>
+    <div id="personOutput" class="person-details">
+        Loading person details...
+    </div>
+
+    <h2>Responsive Divs:</h2>
+    <div class="container">
+        <div class="box">Div 1</div>
+        <div class="box">Div 2</div>
+        <div class="box">Div 3</div>
+    </div>
+
+    <script>
+        // 1. Convert to a JavaScript class with a constructor and sayHello() method
+        class Person {
+            constructor(name, age, occupation) {
+                this.name = name;
+                this.age = age;
+                this.occupation = occupation;
+            }
+
+            sayHello() {
+                // Logs a message to the console
+                console.log(`Hello, my name is ${this.name} and I am a ${this.occupation}.`);
+                return `Hello, my name is ${this.name} and I am a ${this.occupation}.`;
+            }
+
+            getDetails() {
+                return `Name: ${this.name}<br>Age: ${this.age}<br>Occupation: ${this.occupation}`;
+            }
+        }
+
+        // Create an instance of the Person class
+        const person1 = new Person('Alice Smith', 30, 'Software Engineer');
+
+        // Call the sayHello method (logs to console)
+        person1.sayHello();
+
+        // 2. Log the person details inside a div on your page
+        const personOutputDiv = document.getElementById('personOutput');
+        if (personOutputDiv) {
+            personOutputDiv.innerHTML = `
+                <h3>Person Information:</h3>
+                ${person1.getDetails()}
+                <br><br>
+                ${person1.sayHello()} `;
+        }
+    </script>
+</body>
+</html>
